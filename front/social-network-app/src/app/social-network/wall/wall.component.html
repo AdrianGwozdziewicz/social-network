@@ -1,0 +1,5 @@
+<app-post [username]="username" (onSave)="loadPosts()"></app-post>
+
+<div *ngFor="let user of posts$ | async">
+  <span>({{user?.author?.username}} : {{user?.createdDate}}): {{user?.message}}</span><br>
+</div>

@@ -1,0 +1,37 @@
+<div class="container p-4">
+  <div class="d-flex justify-content-around">
+    <p>USERS LIST:</p>
+    <button class="btn btn-info" (click)="newPost = true">new post</button>
+  </div>
+  <div *ngIf="newPost">
+    <app-post (onSave)="loadUsers()"></app-post>
+  </div>
+
+  <ng-container *ngFor="let user of users">
+    <div class="table table-bordered row m-4" *ngIf="user?.username, let current">
+      <span class="col-5">{{current}}</span>
+      <button class="col-2 btn btn-info m-2" (click)="showWall(user)">show wall</button>
+      <button class="col-2 btn btn-info m-2" (click)="showTimeline(user)">show timeline</button>
+      <ng-container *ngIf="selectedUserName && current != selectedUserName">
+        <button class="col-2 btn btn-info m-2" *ngIf="canFollow(current); else unfollowTemplate"
+                (click)="follow(current)">follow
+        </button>
+        <ng-template #unfollowTemplate>
+          <button class="col-2 btn btn-info m-2" (click)="unFollow(current)">un-follow</button>
+        </ng-template>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <div class="p-4" *ngIf="selectedUserName && postOn">
+    <h3 class="d-flex justify-content-center">WALL: {{selectedUserName.toUpperCase()}}</h3>
+    <app-wall [username]="selectedUserName" [refreshSubject]="refresh$"></app-wall>
+  </div>
+
+  <div class="p-4" *ngIf="selectedUserName && wallOn">
+    <h3 class="d-flex justify-content-center">TIMELINE: {{selectedUserName.toUpperCase()}}</h3>
+    <app-timeline [username]="selectedUserName" [refreshSubject]="refresh$"></app-timeline>
+  </div>
+
+</div>
+<!--<router-outlet></router-outlet>-->

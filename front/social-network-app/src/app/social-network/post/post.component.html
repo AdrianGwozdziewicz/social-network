@@ -1,0 +1,18 @@
+<div class="p-4 row" [formGroup]="postForm">
+
+  <p class="col-12">NEW POST</p>
+
+  <div class="col-6" *ngIf="!username">
+    <label>username: </label>
+    <input [formControlName]="'username'">
+  </div>
+
+  <div class="col-6">
+    <label>message: </label>
+    <input [formControlName]="'message'">
+  </div>
+
+</div>
+<div class="d-flex justify-content-end ">
+  <button class="btn btn-info" [disabled]="!postForm.valid" (click)="addPost()">add post</button>
+</div>
