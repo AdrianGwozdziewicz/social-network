@@ -1,6 +1,6 @@
 package com.hsbc.socialnetwork.service;
 
-import com.hsbc.socialnetwork.controller.UserResponse;
+import com.hsbc.socialnetwork.dto.UserResponse;
 import com.hsbc.socialnetwork.exceptions.ApiException;
 import com.hsbc.socialnetwork.model.Post;
 import com.hsbc.socialnetwork.model.User;

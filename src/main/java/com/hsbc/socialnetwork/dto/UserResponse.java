@@ -1,4 +1,4 @@
-package com.hsbc.socialnetwork.controller;
+package com.hsbc.socialnetwork.dto;
 
 import com.hsbc.socialnetwork.model.User;
 import lombok.Builder;

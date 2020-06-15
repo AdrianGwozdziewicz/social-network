@@ -37,7 +37,6 @@ export class PostComponent implements OnInit {
 
   addPost() {
     const formValue = this.postForm.getRawValue();
-    console.log(formValue.username, formValue.message);
     this.userService.newPost(formValue.username, formValue.message)
       .subscribe(() => this.onSave.emit());
   }

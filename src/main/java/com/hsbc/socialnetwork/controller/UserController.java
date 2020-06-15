@@ -1,5 +1,6 @@
 package com.hsbc.socialnetwork.controller;
 
+import com.hsbc.socialnetwork.dto.UserResponse;
 import com.hsbc.socialnetwork.model.Post;
 import com.hsbc.socialnetwork.service.UserService;
 import lombok.RequiredArgsConstructor;
